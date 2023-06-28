@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+
 // Base class for all Unit. It will handle movement order given through the UserControl script.
 // It require a NavMeshAgent to navigate the scene.
 [RequireComponent(typeof(NavMeshAgent))]
@@ -26,7 +27,10 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-
+        if(MainManager.Instance != null)
+        {
+            SetColor(MainManager.Instance.TeamColor);
+        }
     }
 
     void SetColor(Color c)
@@ -94,4 +98,5 @@ public abstract class Unit : MonoBehaviour,
     {
         
     }
+    
 }
